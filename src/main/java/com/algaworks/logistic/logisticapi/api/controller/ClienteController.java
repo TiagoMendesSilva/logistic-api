@@ -1,6 +1,6 @@
 package com.algaworks.logistic.logisticapi.controller;
 
-import com.algaworks.logistic.logisticapi.domain.Cliente;
+import com.algaworks.logistic.logisticapi.domain.model.Cliente;
 import com.algaworks.logistic.logisticapi.domain.repository.ClienteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

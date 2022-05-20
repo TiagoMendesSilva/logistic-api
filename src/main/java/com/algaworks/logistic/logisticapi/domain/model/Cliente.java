@@ -1,4 +1,4 @@
-package com.algaworks.logistic.logisticapi.domain;
+package com.algaworks.logistic.logisticapi.domain.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -32,7 +32,7 @@ public class Cliente {
     private String email;
 
     @NotBlank
-    @Size(max = 60)
+    @Size(min = 13 , max = 60)
     @Column(name="fone")
     private String telefone;
 
