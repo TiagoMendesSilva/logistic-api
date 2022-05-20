@@ -32,5 +32,29 @@ Postman:
 "path": "/clientes"
 }
 
+Tratamento de mensagem de exceção da regra de negócio
 
+Regra de negócio:
+Impedir o cadastro de cliente com o e-mail duplicado
 
+Resposta:
+{
+"status": 400,
+"dateTime": "2022-05-20T17:00:11.325687",
+"titulo": "Já existe cliente cadastrado com esse e-mail",
+"campos": null
+}
+
+No caso acima não é necessário apresentar essa propriedade campos, pois sempre será null.
+
+Solução:
+
+Na classe Problem anotar com @JsonInclude(JsonInclude.Include.NON_NULL)
+Essa anotação apresenta somente propriedades com os valores não nulos.
+
+resposta postman:
+{
+"status": 400,
+"dateTime": "2022-05-20T17:12:26.245878",
+"titulo": "Já existe cliente cadastrado com esse e-mail"
+}
