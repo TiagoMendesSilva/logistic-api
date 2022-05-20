@@ -1,4 +1,4 @@
-package com.algaworks.logistic.logisticapi.exceptionHandler;
+package com.algaworks.logistic.logisticapi.api.exceptionHandler;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
