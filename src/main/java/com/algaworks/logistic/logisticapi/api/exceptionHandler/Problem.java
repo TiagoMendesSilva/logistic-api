@@ -1,7 +1,6 @@
 package com.algaworks.logistic.logisticapi.api.exceptionHandler;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
