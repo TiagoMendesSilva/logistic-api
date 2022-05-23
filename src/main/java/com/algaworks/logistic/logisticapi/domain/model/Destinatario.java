@@ -1,8 +1,14 @@
 package com.algaworks.logistic.logisticapi.domain.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.GeneratedValue;
 
+@Getter
+@Setter
 @Embeddable
 public class Destinatario {
 
