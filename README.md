@@ -58,3 +58,30 @@ resposta postman:
 "dateTime": "2022-05-20T17:12:26.245878",
 "titulo": "Já existe cliente cadastrado com esse e-mail"
 }
+
+
+Para proteger os dados do modelo da api. Na classe entrega adicionar a anotação @JsonProperties(Access = Access.READY_ONLY)
+{
+"id": 2,
+"cliente": {
+"id": 1,
+"nome": "Itamara",
+"email": "ita@logistic.com",
+"telefone": "55 11 99747-1179"
+},
+"destinatario": {
+"nome": "Itamara",
+"logradouro": "Rua Carneiro Leão",
+"numero": "290",
+"complemento": "Bloco 3 apto 134",
+"bairro": "Brás"
+},
+"status": "PENDENTE",
+"taxa": 100.50,
+"data_do_pedido": "2022-05-23T13:50:07.828873",
+"data_pedido_finalizado": null
+}
+
+
+
+
