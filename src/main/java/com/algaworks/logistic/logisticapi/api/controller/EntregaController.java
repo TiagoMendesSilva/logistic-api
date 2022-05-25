@@ -5,6 +5,7 @@ import com.algaworks.logistic.logisticapi.assembler.EntregaAssembler;
 import com.algaworks.logistic.logisticapi.domain.model.Entrega;
 import com.algaworks.logistic.logisticapi.domain.model.dto.DestinatarioModel;
 import com.algaworks.logistic.logisticapi.domain.model.dto.EntregaModel;
+import com.algaworks.logistic.logisticapi.domain.model.input.EntregaInput;
 import com.algaworks.logistic.logisticapi.domain.repository.EntregaRepository;
 import com.algaworks.logistic.logisticapi.domain.service.SolicitacaoEntregaService;
 import lombok.AllArgsConstructor;
@@ -27,9 +28,12 @@ public class EntregaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EntregaModel solicitar (@Valid @RequestBody Entrega entrega){
+    public EntregaModel solicitar (@Valid @RequestBody EntregaInput entregaInput){
 
-        return entregaAssembler.toModel(solicitacaoEntregaService.solicitar(entrega));
+        Entrega novaEntrega = entregaAssembler.toEntity(entregaInput);
+        Entrega entregaSolicitada = solicitacaoEntregaService.solicitar(novaEntrega);
+
+        return entregaAssembler.toModel(entregaSolicitada);
     }
 
     @GetMapping

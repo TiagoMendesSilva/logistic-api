@@ -2,6 +2,7 @@ package com.algaworks.logistic.logisticapi.assembler;
 
 import com.algaworks.logistic.logisticapi.domain.model.Entrega;
 import com.algaworks.logistic.logisticapi.domain.model.dto.EntregaModel;
+import com.algaworks.logistic.logisticapi.domain.model.input.EntregaInput;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -23,5 +24,9 @@ public class EntregaAssembler {
         return entregas.stream()
                 .map(this::toModel)
                 .collect(Collectors.toList());
+    }
+
+    public Entrega toEntity(EntregaInput entregaInput){
+        return modelMapper.map(entregaInput,Entrega.class);
     }
 }
