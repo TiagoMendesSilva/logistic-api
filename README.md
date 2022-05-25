@@ -82,6 +82,31 @@ Para proteger os dados do modelo da api. Na classe entrega adicionar a anotaçã
 "data_pedido_finalizado": null
 }
 
+Ao submeter uma entrega e não for preenchido os dados ou alguma propriedade do destinatário
+no postman e console o erro mostrado:
+{
+"timestamp": "2022-05-25T11:50:03.170+00:00",
+"status": 500,
+"error": "Internal Server Error",
+"trace": "org.springframework.dao.DataIntegrityViolationException: could not execute statement;...
+"message": "could not execute statement;... 
+"path": "/entregas"
+}
 
+Para tratar esse erro e retornar o correto, é necessário:
+- Validar a propriedade de Entrega com as anotações @Valid e @NotNull em destinatário;
+- E na classe Destinatario anotar as propriedades com @NotBlank
 
+Retorno da resposta:
+{
+"status": 400,
+"dateTime": "2022-05-25T09:13:30.966942",
+"titulo": "Um ou mais campos estão inválidos. Faça o preenchimento correto e tente novamente.",
+"campos": [
+{
+"nome": "destinatario.nome",
+"mensagem": "é obrigatório"
+}
+]
+}
 
