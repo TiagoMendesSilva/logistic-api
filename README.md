@@ -110,3 +110,25 @@ Retorno da resposta:
 ]
 }
 
+
+##Isolando o Domain Model do Representation Model
+
+padrão DTO
+
+retorno do objeto no postman
+GET localhost:8080/entregas/{entregaId}
+{
+"id": 2,
+"nomeCliente": "Itamara",
+"taxa": null,
+"status": null,
+"dataPedido": null,
+"dataFinalizacao": null,
+"destinatario": {
+"nome": "Itamara",
+"logradouro": null,
+"numero": null,
+"complemento": null,
+"bairro": "Brás"
+}
+}

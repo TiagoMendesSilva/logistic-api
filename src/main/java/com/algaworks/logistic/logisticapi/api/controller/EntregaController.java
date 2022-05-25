@@ -2,6 +2,8 @@ package com.algaworks.logistic.logisticapi.api.controller;
 
 
 import com.algaworks.logistic.logisticapi.domain.model.Entrega;
+import com.algaworks.logistic.logisticapi.domain.model.dto.DestinatarioModel;
+import com.algaworks.logistic.logisticapi.domain.model.dto.EntregaModel;
 import com.algaworks.logistic.logisticapi.domain.repository.EntregaRepository;
 import com.algaworks.logistic.logisticapi.domain.service.SolicitacaoEntregaService;
 import lombok.AllArgsConstructor;
@@ -33,10 +35,19 @@ public class EntregaController {
     }
 
     @GetMapping("/{entregaId}")
-    public ResponseEntity<Entrega> buscar(@PathVariable Long entregaId){
+    public ResponseEntity<EntregaModel> buscar(@PathVariable Long entregaId){
 
         return entregaRepository.findById(entregaId)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .map( entrega -> {
+                    EntregaModel entregaModel = new EntregaModel();
+                    entregaModel.setId(entrega.getId());
+                    entregaModel.setNomeCliente(entrega.getCliente().getNome());
+                    entregaModel.setDestinatario(new DestinatarioModel());
+                    entregaModel.getDestinatario().setNome(entrega.getDestinatario().getNome());
+                    entregaModel.getDestinatario().setBairro(entrega.getDestinatario().getBairro());
+
+                return ResponseEntity.ok(entregaModel);
+
+                }).orElse(ResponseEntity.notFound().build());
     }
 }
