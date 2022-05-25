@@ -132,3 +132,47 @@ GET localhost:8080/entregas/{entregaId}
 "bairro": "Brás"
 }
 }
+
+Na classe EntregaModel modificar a propriedade nomeCliente para a classe ClienteResumoModel
+
+retorno postman sem a classe criada
+[
+{
+"id": 1,
+"nomeCliente": "Itamara",
+"taxa": 100.50,
+"status": "PENDENTE",
+"dataPedido": null,
+"dataFinalizacao": null,
+"destinatario": {
+"nome": "Itamara",
+"logradouro": "Rua Carneiro Leão",
+"numero": "290",
+"complemento": "Bloco 3 apto 134",
+"bairro": "Brás"
+}
+}
+]
+
+retorno com a classe ClienteResumoModel
+
+[
+{
+"id": 1,
+"cliente": {
+"id": 1,
+"nome": "Itamara"
+},
+"taxa": 100.50,
+"status": "PENDENTE",
+"dataPedido": null,
+"dataFinalizacao": null,
+"destinatario": {
+"nome": "Itamara",
+"logradouro": "Rua Carneiro Leão",
+"numero": "290",
+"complemento": "Bloco 3 apto 134",
+"bairro": "Brás"
+}
+}
+]
