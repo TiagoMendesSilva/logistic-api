@@ -39,7 +39,7 @@ public class Entrega {
 
     private OffsetDateTime data_pedido_finalizado;
 
-    @OneToMany(mappedBy = "entrega")
+    @OneToMany(mappedBy = "entrega",cascade = CascadeType.ALL)
     private List<Ocorrencia> ocorrencias = new ArrayList<>();
 
     public Ocorrencia adicionarOcorrencia(String descricao) {

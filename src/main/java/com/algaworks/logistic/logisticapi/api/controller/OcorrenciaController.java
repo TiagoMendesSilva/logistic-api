@@ -24,8 +24,7 @@ public class OcorrenciaController {
     public OcorrenciaModel registrar(@PathVariable Long entregaId, @Valid @RequestBody OcorrenciaInput ocorrenciaInput){
 
         Ocorrencia ocorrenciaRegistrada = registroOcorrenciaService.registrar(entregaId,ocorrenciaInput.getDescricao());
-        OcorrenciaModel ocorrenciaModel = ocorrenciaAssembler.toModel(ocorrenciaRegistrada);
 
-        return ocorrenciaModel;
+        return ocorrenciaAssembler.toModel(ocorrenciaRegistrada);
     }
 }
