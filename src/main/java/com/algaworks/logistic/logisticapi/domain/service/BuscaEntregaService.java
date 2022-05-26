@@ -1,6 +1,6 @@
 package com.algaworks.logistic.logisticapi.domain.service;
 
-import com.algaworks.logistic.logisticapi.domain.exception.NegocioException;
+import com.algaworks.logistic.logisticapi.domain.exception.EntidadeNaoEncontradaException;
 import com.algaworks.logistic.logisticapi.domain.model.Entrega;
 import com.algaworks.logistic.logisticapi.domain.repository.EntregaRepository;
 import lombok.AllArgsConstructor;
@@ -15,6 +15,6 @@ public class BuscaEntregaService {
     public Entrega buscar(Long entregaId){
 
         return entregaRepository.findById(entregaId)
-                .orElseThrow( () -> new NegocioException("Entrega não encontrada"));
+                .orElseThrow( () -> new EntidadeNaoEncontradaException("Entidade não encontrada"));
     }
 }

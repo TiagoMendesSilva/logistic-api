@@ -176,3 +176,23 @@ retorno com a classe ClienteResumoModel
 }
 }
 ]
+
+
+
+Ao implementar o sub-recurso ocorrencias
+Ao submeter a requisição e estiver com o entregaId inexistente retorna:
+{
+"status": 400,
+"dateTime": "2022-05-26T11:47:12.738256-03:00",
+"titulo": "Entrega não encontrada"
+}
+
+O correto é retornar 404
+
+{
+"status": 404,
+"dateTime": "2022-05-26T13:26:25.677253-03:00",
+"titulo": "Entidade não encontrada"
+}
+
+Solução: criada uma nova exception que herda NegocioException e adiciona no handler o método da nova exception criada passando o status 404
